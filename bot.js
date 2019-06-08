@@ -20,6 +20,7 @@ client.on("message", message => {
    ${prefix}sw / لـ تغير حاله البوت الي واتشنق
    ${prefix}sl / لـ تغير حاله البوت الي لستينق
    ${prefix}ss / لتغير حاله البوت الي استريمنق
+**
 `)
    message.channel.sendEmbed(embed)
    
