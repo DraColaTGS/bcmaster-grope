@@ -12,6 +12,7 @@ client.on("message", message => {
    ${prefix}obc / لــ ارسال برود كاسيت لللاون لاين فقط 
    ${prefix}rolebc / لــ ارسال برود كاست لرتبه معينه
    ${prefix}sand / لـ ارسال برود كاسيت لشخص معين
+   ${prefix}bot / لمعرفه معلومات البوت
 **
 ==============================================
 ** لتغير حلات البوت **
@@ -48,6 +49,28 @@ client.on('message', message => {
   if (message.content.startsWith(adminprefix + 'ss')) {//استريمنق
     client.user.setGame(argresult, "https://www.twitch.tv/M3roof");
       message.channel.send(`**Status You ${argresult}:white_check_mark:  **`)
+}
+});
+
+client.on('message', message => {
+    if(message.content.startsWith(prefix + 'bot')) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``bot info`` ')
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+                  .addField('``My Prefix``' , `[ - ]` , true)
+                  .addField('``My Language``' , `[ Java Script ]` , true)
+                  .setFooter('By |!LG ÐrĀčuĿĀ#6764')
+    })
 }
 });
 
